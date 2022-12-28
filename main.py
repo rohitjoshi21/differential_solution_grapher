@@ -16,7 +16,7 @@ def derivative(x, y):
     '''
     Write the value of dy/dx here
     '''
-    return x+y*x
+    return x+y
 
 # Euler's Method
 def euler(x0, y0, h, n):
