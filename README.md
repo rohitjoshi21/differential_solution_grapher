@@ -8,7 +8,7 @@ It compares following three methods:
 
 To be precise, it solves differential equation of the form:
 
-- <img src="https://latex.codecogs.com/svg.image?\frac{dy}{dx}&space;=&space;f(x,y)" title="https://latex.codecogs.com/svg.image?\frac{dy}{dx} = f(x,y)" />
+- <img src="https://latex.codecogs.com/svg.image?\bg{white}\frac{dy}{dx}&space;=&space;f(x,y)" title="https://latex.codecogs.com/svg.image?\bg{white}\frac{dy}{dx} = f(x,y)" />
 
 ## :camera: Screenshot
 
