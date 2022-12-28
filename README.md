@@ -8,7 +8,9 @@ It compares following three methods:
 
 To be precise, it solves differential equation of the form:
 
-- <img src="https://latex.codecogs.com/gif.image?\inline&space;\LARGE&space;\dpi{110}\bg{black}\frac{dy}{dx}&space;=&space;&space;f(x,y)" title="https://latex.codecogs.com/gif.image?\inline \LARGE \dpi{110}\bg{black}\frac{dy}{dx} = f(x,y)" />
+dy/dx = f(x,y)
+
+The expression for f(x,y) can be given in the function "derivative" in main.py 
 
 ## :camera: Screenshot
 
