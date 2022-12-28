@@ -1,11 +1,21 @@
+import matplotlib
+import matplotlib.pyplot as plt
+from matplotlib.widgets import Slider
 import numpy as np
 from scipy.integrate import odeint
-import matplotlib.pyplot as plt
 from math import *
-from matplotlib.widgets import Slider
+
+#Kept on try;except block as this may not work on some environment. Works neatly on most of the linux distros.
+try:
+    matplotlib.use('gtk3agg')
+except:
+    pass
 
 # Function to compute the derivative at a given point (x, y)
 def derivative(x, y):
+    '''
+    Write the value of dy/dx here
+    '''
     return x+y*x
 
 # Euler's Method
@@ -48,12 +58,14 @@ def rk4(x0, y0, h, n):
     return x, y
 
 #Exact/LSODA Method
+#This is the method used by odeint function of from scipy.integrate module and is accurate enough as per our requirement. 
 def lsoda(x0,y0,h,n):
     x = np.linspace(x0,x0+n*h)
     y = odeint(derivative, y0, x, tfirst=True)
     return x, y
 
 #Exact Solution
+#We can pass the exact analytical solution here to evaluate exact points from it
 def exact(x0, y0, h, n):
     xn = x0+h*n
     x = np.linspace(x0,xn)
@@ -67,7 +79,7 @@ def exact(x0, y0, h, n):
 # Set the initial conditions and step size
 x0 = 0
 y0 = 0
-x1 = 5
+x1 = 5 #Point where we need to know the function's value.
 h = 0.5
 n = int((x1-x0)/h)
 
@@ -117,6 +129,14 @@ def update(h):
     text.set_text(errorText%(abs(y_euler[-1]-y_lsoda[-1])[0],abs(y_rk2[-1]-y_lsoda[-1])[0],abs(y_rk4[-1]-y_lsoda[-1])[0]))
         
 h_slider.on_changed(update)
+
+#Kept on try;except block as this may not work on some environment. Works neatly on most of the linux distros.
+try:
+    figManager = plt.get_current_fig_manager()
+    figManager.window.maximize()
+except:
+    pass
+
 
 plt.show()
 
